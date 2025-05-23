@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useApp } from '@/context/AppContext';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { Bookmark, BookmarkMinus, Eye, CheckCircle, Clock } from 'lucide-react';
+import { Bookmark, BookmarkMinus, Eye } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -32,19 +32,33 @@ const SubjectCard: React.FC<SubjectCardProps> = ({
   description,
   description_bn 
 }) => {
-  const { language, addBookmark, removeBookmark, isBookmarked, addToRecentlyViewed, progress, updateProgress } = useApp();
+  const { language, addBookmark, removeBookmark, isBookmarked } = useApp();
   const navigate = useNavigate();
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   
   const bookmarked = isBookmarked(id);
-  const currentProgress = progress[id] || 'not-started';
+  
+  // Initialize audio
+  if (!audioRef.current) {
+    audioRef.current = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAMABwAKAA0AEAASA==');
+    audioRef.current.volume = 0.2;
+  }
+  
+  const playClickSound = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(err => console.log("Audio play failed:", err));
+    }
+  };
   
   const handleViewGuide = () => {
-    addToRecentlyViewed(id);
+    playClickSound();
     navigate(`/guide/${id}`);
   };
   
   const handleBookmarkToggle = () => {
+    playClickSound();
     if (bookmarked) {
       removeBookmark(id);
     } else {
@@ -52,26 +66,16 @@ const SubjectCard: React.FC<SubjectCardProps> = ({
     }
   };
   
-  const handleProgressChange = () => {
-    const nextStatus: Record<string, 'completed' | 'in-progress' | 'not-started'> = {
-      'not-started': 'in-progress',
-      'in-progress': 'completed',
-      'completed': 'not-started'
-    };
-    
-    updateProgress(id, nextStatus[currentProgress]);
-  };
-  
   return (
     <>
-      <Card className="card-hover overflow-hidden relative border-bengal-200 dark:border-bengal-800 bg-white dark:bg-bengal-900">
+      <Card className="card-hover overflow-hidden relative border-4 border-green-200 dark:border-purple-800 bg-white dark:bg-black rounded-xl hover:border-yellow-200 transition-colors">
         <div className="p-5">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className={`text-lg font-semibold text-bengal-800 dark:text-bengal-200 ${language === 'bn' ? 'font-bengali' : ''}`}>
+              <h3 className={`text-lg font-semibold text-black dark:text-white ${language === 'bn' ? 'font-bengali' : ''}`}>
                 {language === 'en' ? name : name_bn}
               </h3>
-              <p className="text-sm text-bengal-600 dark:text-bengal-400 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 {version} {language === 'en' ? 'Version' : 'ভার্সন'}
               </p>
             </div>
@@ -79,13 +83,14 @@ const SubjectCard: React.FC<SubjectCardProps> = ({
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8"
+              className="rounded-lg h-8 w-8"
               onClick={handleBookmarkToggle}
+              onMouseDown={playClickSound}
             >
               {bookmarked ? (
-                <BookmarkMinus className="h-5 w-5 text-bengal-600 dark:text-bengal-400" />
+                <BookmarkMinus className="h-5 w-5 text-yellow-500" />
               ) : (
-                <Bookmark className="h-5 w-5 text-bengal-600 dark:text-bengal-400" />
+                <Bookmark className="h-5 w-5 text-gray-600 dark:text-gray-400" />
               )}
             </Button>
           </div>
@@ -94,70 +99,52 @@ const SubjectCard: React.FC<SubjectCardProps> = ({
             <Button 
               variant="ghost" 
               size="sm"
-              className="text-bengal-500 hover:text-bengal-700 dark:text-bengal-400 dark:hover:text-bengal-200 p-0"
-              onClick={() => setIsPreviewOpen(true)}
+              className="rounded-lg text-green-700 hover:text-green-900 dark:text-purple-400 dark:hover:text-purple-200 p-0"
+              onClick={() => {
+                playClickSound();
+                setIsPreviewOpen(true);
+              }}
             >
               <Eye className="h-4 w-4 mr-1" />
               <span className={language === 'bn' ? 'font-bengali' : ''}>
                 {language === 'en' ? 'Preview' : 'প্রিভিউ'}
               </span>
             </Button>
-            <span className="text-bengal-400 dark:text-bengal-600">|</span>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              className="p-0 text-bengal-500 hover:text-bengal-700 dark:text-bengal-400 dark:hover:text-bengal-200"
-              onClick={handleProgressChange}
-            >
-              {currentProgress === 'completed' ? (
-                <CheckCircle className="h-4 w-4 mr-1 text-green-600" />
-              ) : currentProgress === 'in-progress' ? (
-                <Clock className="h-4 w-4 mr-1 text-orange-500" />
-              ) : (
-                <Clock className="h-4 w-4 mr-1" />
-              )}
-              <span className={language === 'bn' ? 'font-bengali' : ''}>
-                {currentProgress === 'completed' ? 
-                  (language === 'en' ? 'Completed' : 'সম্পন্ন') : 
-                  currentProgress === 'in-progress' ? 
-                  (language === 'en' ? 'In Progress' : 'চলমান') : 
-                  (language === 'en' ? 'Not Started' : 'শুরু হয়নি')}
-              </span>
-            </Button>
           </div>
           
           <Button 
             onClick={handleViewGuide}
-            className="w-full mt-4 bg-bengal-600 text-white hover:bg-bengal-700"
+            onMouseDown={playClickSound}
+            className="w-full mt-4 bg-green-600 hover:bg-green-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded-lg"
           >
             <span className={language === 'bn' ? 'font-bengali' : ''}>
-              {language === 'en' ? 'View Guide' : 'গাইড দেখুন'}
+              {language === 'en' ? 'Enter Guide' : 'গাইডে প্রবেশ করুন'}
             </span>
           </Button>
         </div>
-        
-        {/* Add floating stars for decoration */}
-        <span className="star w-1 h-1 top-2 left-5 animate-star-float" style={{ '--delay': '0.2' } as React.CSSProperties}></span>
-        <span className="star w-1.5 h-1.5 bottom-5 right-6 animate-star-float" style={{ '--delay': '1.3' } as React.CSSProperties}></span>
       </Card>
       
       <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-md bg-white dark:bg-black border-4 border-green-200 dark:border-purple-800">
           <DialogHeader>
-            <DialogTitle className={language === 'bn' ? 'font-bengali' : ''}>
+            <DialogTitle className={`text-black dark:text-white ${language === 'bn' ? 'font-bengali' : ''}`}>
               {language === 'en' ? name : name_bn}
             </DialogTitle>
-            <DialogDescription className={`${language === 'bn' ? 'font-bengali' : ''} !text-base`}>
+            <DialogDescription className={`${language === 'bn' ? 'font-bengali' : ''} !text-base text-gray-700 dark:text-gray-300`}>
               {language === 'en' ? description : description_bn}
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end">
             <Button 
-              onClick={handleViewGuide}
-              className="bg-bengal-600 text-white hover:bg-bengal-700"
+              onClick={() => {
+                playClickSound();
+                setIsPreviewOpen(false);
+                handleViewGuide();
+              }}
+              className="bg-green-600 hover:bg-green-700 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded-lg"
             >
               <span className={language === 'bn' ? 'font-bengali' : ''}>
-                {language === 'en' ? 'View Full Guide' : 'সম্পূর্ণ গাইড দেখুন'}
+                {language === 'en' ? 'Enter Guide' : 'গাইডে প্রবেশ করুন'}
               </span>
             </Button>
           </div>

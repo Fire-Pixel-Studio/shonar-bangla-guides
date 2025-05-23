@@ -64,17 +64,17 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
         bengal: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+          50: '#f1f8f2',
+          100: '#e2f0e5',
+          200: '#c5e0ca',
+          300: '#97c5a0',
+          400: '#6aa676',
+          500: '#4a8854',
+          600: '#3a6d43',
+          700: '#315838',
+          800: '#2a4930',
+          900: '#243c29',
+          950: '#0d1a0f',
         }
 			},
 			borderRadius: {
@@ -104,7 +104,7 @@ export default {
             transform: 'translateY(0px)',
           },
           '50%': {
-            transform: 'translateY(-10px)',
+            transform: 'translateY(-15px)',
           },
         },
         'pulse-soft': {
@@ -118,17 +118,41 @@ export default {
         'star-float': {
           '0%': {
             transform: 'translateY(0px) rotate(0deg)',
-            opacity: '0.4',
+            opacity: '0.6',
           },
           '50%': {
             transform: 'translateY(-15px) rotate(180deg)',
-            opacity: '0.8',
+            opacity: '1',
           },
           '100%': {
             transform: 'translateY(0px) rotate(360deg)',
-            opacity: '0.4',
+            opacity: '0.6',
           },
         },
+        'star-run-left-to-right': {
+          '0%': { left: '-5%', opacity: '0.6' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { left: '105%', opacity: '0.6' }
+        },
+        'star-run-right-to-left': {
+          '0%': { left: '105%', opacity: '0.6' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { left: '-5%', opacity: '0.6' }
+        },
+        'star-run-top-to-bottom': {
+          '0%': { top: '-5%', opacity: '0.6' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { top: '105%', opacity: '0.6' }
+        },
+        'star-run-bottom-to-top': {
+          '0%': { top: '105%', opacity: '0.6' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { top: '-5%', opacity: '0.6' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -136,6 +160,10 @@ export default {
         'float': 'float 3s ease-in-out infinite',
         'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
         'star-float': 'star-float 5s ease-in-out infinite',
+        'star-run-left-to-right': 'star-run-left-to-right var(--duration, 15s) linear infinite',
+        'star-run-right-to-left': 'star-run-right-to-left var(--duration, 15s) linear infinite',
+        'star-run-top-to-bottom': 'star-run-top-to-bottom var(--duration, 15s) linear infinite',
+        'star-run-bottom-to-top': 'star-run-bottom-to-top var(--duration, 15s) linear infinite'
 			},
       fontFamily: {
         'bengali': ['Noto Serif Bengali', 'serif'],
