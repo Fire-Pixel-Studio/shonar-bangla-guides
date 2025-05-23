@@ -1,0 +1,174 @@
+
+{
+  "classes": [
+    {
+      "id": "class1",
+      "name": "Class 1",
+      "name_bn": "শ্রেণী ১",
+      "subjects": [
+        {
+          "id": "bangla1",
+          "name": "Bangla",
+          "name_bn": "বাংলা",
+          "version": "Bangla",
+          "file_path": "guides/class1_bangla.pdf",
+          "description": "Comprehensive Bangla guide for Class 1 students",
+          "description_bn": "প্রথম শ্রেণীর শিক্ষার্থীদের জন্য সম্পূর্ণ বাংলা গাইড"
+        },
+        {
+          "id": "english1",
+          "name": "English",
+          "name_bn": "ইংরেজি",
+          "version": "Bangla",
+          "file_path": "guides/class1_english.pdf",
+          "description": "Complete English guide for Class 1 students",
+          "description_bn": "প্রথম শ্রেণীর শিক্ষার্থীদের জন্য সম্পূর্ণ ইংরেজি গাইড"
+        },
+        {
+          "id": "math1",
+          "name": "Mathematics",
+          "name_bn": "গণিত",
+          "version": "Bangla",
+          "file_path": "guides/class1_math.pdf",
+          "description": "Detailed Mathematics guide for Class 1 students",
+          "description_bn": "প্রথম শ্রেণীর শিক্ষার্থীদের জন্য বিস্তারিত গণিত গাইড"
+        },
+        {
+          "id": "english1_en",
+          "name": "English",
+          "name_bn": "ইংরেজি",
+          "version": "English",
+          "file_path": "guides/class1_english_en.pdf",
+          "description": "English medium guide for Class 1 students",
+          "description_bn": "প্রথম শ্রেণীর শিক্ষার্থীদের জন্য ইংরেজি মাধ্যমের গাইড"
+        },
+        {
+          "id": "math1_en",
+          "name": "Mathematics",
+          "name_bn": "গণিত",
+          "version": "English",
+          "file_path": "guides/class1_math_en.pdf",
+          "description": "English medium Mathematics guide for Class 1 students",
+          "description_bn": "প্রথম শ্রেণীর শিক্ষার্থীদের জন্য ইংরেজি মাধ্যমের গণিত গাইড"
+        }
+      ]
+    },
+    {
+      "id": "class2",
+      "name": "Class 2",
+      "name_bn": "শ্রেণী ২",
+      "subjects": [
+        {
+          "id": "bangla2",
+          "name": "Bangla",
+          "name_bn": "বাংলা",
+          "version": "Bangla",
+          "file_path": "guides/class2_bangla.pdf",
+          "description": "Comprehensive Bangla guide for Class 2 students",
+          "description_bn": "দ্বিতীয় শ্রেণীর শিক্ষার্থীদের জন্য সম্পূর্ণ বাংলা গাইড"
+        },
+        {
+          "id": "english2",
+          "name": "English",
+          "name_bn": "ইংরেজি",
+          "version": "Bangla",
+          "file_path": "guides/class2_english.pdf",
+          "description": "Complete English guide for Class 2 students",
+          "description_bn": "দ্বিতীয় শ্রেণীর শিক্ষার্থীদের জন্য সম্পূর্ণ ইংরেজি গাইড"
+        },
+        {
+          "id": "math2",
+          "name": "Mathematics",
+          "name_bn": "গণিত",
+          "version": "Bangla",
+          "file_path": "guides/class2_math.pdf",
+          "description": "Detailed Mathematics guide for Class 2 students",
+          "description_bn": "দ্বিতীয় শ্রেণীর শিক্ষার্থীদের জন্য বিস্তারিত গণিত গাইড"
+        },
+        {
+          "id": "english2_en",
+          "name": "English",
+          "name_bn": "ইংরেজি",
+          "version": "English",
+          "file_path": "guides/class2_english_en.pdf",
+          "description": "English medium guide for Class 2 students",
+          "description_bn": "দ্বিতীয় শ্রেণীর শিক্ষার্থীদের জন্য ইংরেজি মাধ্যমের গাইড"
+        },
+        {
+          "id": "math2_en",
+          "name": "Mathematics",
+          "name_bn": "গণিত",
+          "version": "English",
+          "file_path": "guides/class2_math_en.pdf",
+          "description": "English medium Mathematics guide for Class 2 students",
+          "description_bn": "দ্বিতীয় শ্রেণীর শিক্ষার্থীদের জন্য ইংরেজি মাধ্যমের গণিত গাইড"
+        }
+      ]
+    },
+    {
+      "id": "class3",
+      "name": "Class 3",
+      "name_bn": "শ্রেণী ৩",
+      "subjects": []
+    },
+    {
+      "id": "class4",
+      "name": "Class 4",
+      "name_bn": "শ্রেণী ৪",
+      "subjects": []
+    },
+    {
+      "id": "class5",
+      "name": "Class 5",
+      "name_bn": "শ্রেণী ৫",
+      "subjects": []
+    },
+    {
+      "id": "class6",
+      "name": "Class 6",
+      "name_bn": "শ্রেণী ৬",
+      "subjects": []
+    },
+    {
+      "id": "class7",
+      "name": "Class 7",
+      "name_bn": "শ্রেণী ৭",
+      "subjects": []
+    },
+    {
+      "id": "class8",
+      "name": "Class 8",
+      "name_bn": "শ্রেণী ৮",
+      "subjects": []
+    },
+    {
+      "id": "class9",
+      "name": "Class 9",
+      "name_bn": "শ্রেণী ৯",
+      "subjects": []
+    },
+    {
+      "id": "class10",
+      "name": "Class 10",
+      "name_bn": "শ্রেণী ১০",
+      "subjects": []
+    }
+  ],
+  "quotes": [
+    {
+      "text": "Education is the most powerful weapon which you can use to change the world.",
+      "text_bn": "শিক্ষা হল সবচেয়ে শক্তিশালী অস্ত্র যা দিয়ে আপনি বিশ্বকে বদলাতে পারেন।",
+      "author": "Nelson Mandela"
+    },
+    {
+      "text": "The roots of education are bitter, but the fruit is sweet.",
+      "text_bn": "শিক্ষার শিকড় তিক্ত, কিন্তু ফল মিষ্টি।",
+      "author": "Aristotle"
+    },
+    {
+      "text": "Education is not preparation for life; education is life itself.",
+      "text_bn": "শিক্ষা জীবনের প্রস্তুতি নয়; শিক্ষা জীবন নিজেই।",
+      "author": "John Dewey"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        bengal: {
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+          700: '#15803d',
+          800: '#166534',
+          900: '#14532d',
+          950: '#052e16',
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +98,49 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0px)',
+          },
+          '50%': {
+            transform: 'translateY(-10px)',
+          },
+        },
+        'pulse-soft': {
+          '0%, 100%': {
+            opacity: '1',
+          },
+          '50%': {
+            opacity: '0.8',
+          },
+        },
+        'star-float': {
+          '0%': {
+            transform: 'translateY(0px) rotate(0deg)',
+            opacity: '0.2',
+          },
+          '50%': {
+            transform: 'translateY(-15px) rotate(180deg)',
+            opacity: '0.5',
+          },
+          '100%': {
+            transform: 'translateY(0px) rotate(360deg)',
+            opacity: '0.2',
+          },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'float': 'float 3s ease-in-out infinite',
+        'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+        'star-float': 'star-float 5s ease-in-out infinite',
+			},
+      fontFamily: {
+        'bengali': ['Noto Serif Bengali', 'serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+      },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
