@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { useApp } from '@/context/AppContext';
 
 interface Star {
   id: number;
@@ -11,6 +12,7 @@ interface Star {
 
 const Stars: React.FC = () => {
   const [stars, setStars] = useState<Star[]>([]);
+  const { theme } = useApp();
 
   useEffect(() => {
     const generateStars = () => {
@@ -47,7 +49,11 @@ const Stars: React.FC = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-white dark:bg-bengal-300 opacity-30 dark:opacity-20 rotate-star"
+          className={`absolute rounded-full ${
+            theme === 'light' 
+              ? 'bg-bengal-600/30' 
+              : 'bg-blue-300/20'
+          } rotate-star`}
           style={{
             width: `${star.size}px`,
             height: `${star.size}px`,
