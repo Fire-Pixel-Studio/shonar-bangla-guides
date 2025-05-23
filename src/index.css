@@ -17,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 76% 36%;
+    --primary: 215 25% 27%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,7 +26,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 145 64% 40%;
+    --accent: 215 25% 40%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +34,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --ring: 215 25% 27%;
 
     --radius: 0.5rem;
 
@@ -58,7 +58,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 142 76% 36%;
+    --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -67,7 +67,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 145 64% 40%;
+    --accent: 217.2 91.2% 59.8%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -75,7 +75,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142 76% 36%;
+    --ring: 224.3 76.3% 48%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -104,15 +104,15 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-gradient-to-tr from-bengal-50 to-white dark:from-bengal-900 dark:to-bengal-800;
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-gradient-to-tr from-slate-50 to-white dark:from-slate-900 dark:to-slate-800;
   }
 
   .btn-primary {
-    @apply bg-bengal-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-bengal-700 transition-colors duration-200 font-medium;
+    @apply bg-slate-700 text-white px-6 py-3 rounded-lg shadow-md hover:bg-slate-800 transition-colors duration-200 font-medium dark:bg-blue-600 dark:hover:bg-blue-700;
   }
 
   .section-title {
-    @apply text-2xl md:text-3xl font-bold mb-6 text-bengal-800 dark:text-bengal-100 font-bengali;
+    @apply text-2xl md:text-3xl font-bold mb-6 text-slate-800 dark:text-slate-100 font-bengali;
   }
 
   .rotate-star {
