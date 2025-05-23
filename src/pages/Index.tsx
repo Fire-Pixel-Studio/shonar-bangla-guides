@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import ClassCard from '@/components/ClassCard';
 import Stars from '@/components/Stars';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import guides from '@/data/guides.json';
 
 const Index = () => {
@@ -96,7 +97,7 @@ const Index = () => {
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
-                className="btn-primary text-lg py-6 px-8"
+                className="rounded-full text-lg py-6 px-8 bg-blue-600 hover:bg-blue-700 text-white"
                 onClick={scrollToClasses}
               >
                 <span className={language === 'bn' ? 'font-bengali' : ''}>
@@ -106,7 +107,7 @@ const Index = () => {
               
               <Button 
                 variant="outline"
-                className="bg-white dark:bg-transparent border-bengal-600 text-bengal-700 dark:text-bengal-300 dark:border-bengal-500 hover:bg-bengal-50 dark:hover:bg-bengal-900/50 text-lg py-6 px-8"
+                className="rounded-full bg-green-600 hover:bg-green-700 text-white border-none text-lg py-6 px-8"
                 onClick={downloadSamplePDF}
               >
                 <span className={language === 'bn' ? 'font-bengali' : ''}>
@@ -116,7 +117,7 @@ const Index = () => {
               
               <Button 
                 variant="outline"
-                className="bg-white dark:bg-transparent border-bengal-600 text-bengal-700 dark:text-bengal-300 dark:border-bengal-500 hover:bg-bengal-50 dark:hover:bg-bengal-900/50 text-lg py-6 px-8"
+                className="rounded-full bg-purple-600 hover:bg-purple-700 text-white border-none text-lg py-6 px-8"
                 onClick={showContactInfo}
               >
                 <span className={language === 'bn' ? 'font-bengali' : ''}>
@@ -135,9 +136,9 @@ const Index = () => {
               </blockquote>
             </div>
           </div>
-          
-          {/* Image Credits would go here if we had an actual image */}
         </section>
+        
+        <Separator className="mx-auto w-[90%] max-w-5xl h-1 bg-bengal-200 dark:bg-bengal-800 rounded-full my-4" />
         
         {/* Classes Section */}
         <section id="classes-section" className="px-4 py-16">
@@ -167,6 +168,8 @@ const Index = () => {
           </div>
         </section>
         
+        <Separator className="mx-auto w-[90%] max-w-5xl h-1 bg-bengal-200 dark:bg-bengal-800 rounded-full my-4" />
+        
         {/* Quick Tips Section */}
         <section className="px-4 py-16 bg-bengal-50 dark:bg-bengal-900/30">
           <div className="container mx-auto">
@@ -175,7 +178,7 @@ const Index = () => {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white dark:bg-bengal-900 p-6 rounded-lg shadow-md border border-bengal-200 dark:border-bengal-800">
+              <div className="bg-white dark:bg-bengal-900 p-6 rounded-xl shadow-md border border-bengal-200 dark:border-bengal-800">
                 <h3 className={`font-bold text-lg mb-2 text-bengal-700 dark:text-bengal-300 ${language === 'bn' ? 'font-bengali' : ''}`}>
                   {language === 'en' ? 'Study Schedule' : 'অধ্যয়ন সূচি'}
                 </h3>
@@ -186,7 +189,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-white dark:bg-bengal-900 p-6 rounded-lg shadow-md border border-bengal-200 dark:border-bengal-800">
+              <div className="bg-white dark:bg-bengal-900 p-6 rounded-xl shadow-md border border-bengal-200 dark:border-bengal-800">
                 <h3 className={`font-bold text-lg mb-2 text-bengal-700 dark:text-bengal-300 ${language === 'bn' ? 'font-bengali' : ''}`}>
                   {language === 'en' ? 'Active Learning' : 'সক্রিয় শিক্ষা'}
                 </h3>
@@ -197,7 +200,7 @@ const Index = () => {
                 </p>
               </div>
               
-              <div className="bg-white dark:bg-bengal-900 p-6 rounded-lg shadow-md border border-bengal-200 dark:border-bengal-800">
+              <div className="bg-white dark:bg-bengal-900 p-6 rounded-xl shadow-md border border-bengal-200 dark:border-bengal-800">
                 <h3 className={`font-bold text-lg mb-2 text-bengal-700 dark:text-bengal-300 ${language === 'bn' ? 'font-bengali' : ''}`}>
                   {language === 'en' ? 'Practice Questions' : 'অনুশীলন প্রশ্ন'}
                 </h3>

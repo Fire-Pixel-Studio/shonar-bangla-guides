@@ -17,12 +17,12 @@ const Stars: React.FC = () => {
   useEffect(() => {
     const generateStars = () => {
       const newStars: Star[] = [];
-      const numStars = window.innerWidth < 768 ? 25 : 50; // Increased number of stars
+      const numStars = window.innerWidth < 768 ? 25 : 50; // Same number of stars
       
       for (let i = 0; i < numStars; i++) {
         newStars.push({
           id: i,
-          size: Math.random() * 3 + 1.5, // Increased size range
+          size: Math.random() * 4 + 2, // Increased size range
           top: Math.random() * 100,
           left: Math.random() * 100,
           delay: Math.random() * 5,
@@ -51,8 +51,8 @@ const Stars: React.FC = () => {
           key={star.id}
           className={`absolute rounded-full ${
             theme === 'light' 
-              ? 'bg-slate-600/50' 
-              : 'bg-blue-200/50'
+              ? 'bg-slate-600/70' 
+              : 'bg-blue-200/70'
           } rotate-star`}
           style={{
             width: `${star.size}px`,
